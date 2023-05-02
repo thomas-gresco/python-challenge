@@ -2,8 +2,8 @@ import csv
 from pathlib import Path
 import os
 
-input_file = Path("election_data.csv")
-out_file = Path("result_PyPoll.txt")
+input_file = Path("Resources/election_data.csv")
+out_file = Path("analysis/result_PyPoll.txt")
 
 # Define variables
 total_votes = 0
@@ -13,6 +13,7 @@ winner_name = ""
 
 with open(input_file, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+    #skip header
     next(csvreader)
 
     # Loop through candidates
@@ -43,7 +44,7 @@ print("-------------------------")
 print(f"Winner: {winner_name}")
 print("-------------------------")
 
-
+#write in output file
 with open(out_file, "w") as output_file:
     output_file.write("Election Results\n")
     output_file.write("-------------------------\n")
