@@ -1,13 +1,14 @@
 import csv 
 from pathlib import Path
 
-input_file = Path("budget_data.csv")
-output_file = Path("result_PyBank.txt")
+input_file = Path("Resources/budget_data.csv")
+output_file = Path("Analysis/result_PyBank.txt")
 
 
 # Reading the file
 with open(input_file, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+    #skip header
     header = next(csvreader)
 
     # Empty Lists
